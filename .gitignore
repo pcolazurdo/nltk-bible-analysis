@@ -1,3 +1,4 @@
 data/
 Bible-kjv/
 .ipynb_checkpoints
+.DS_Store
