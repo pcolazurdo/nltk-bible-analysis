@@ -1,6 +1,6 @@
 # This sample code uses Bible API to download a JSON representation of a full Bible book
-# to get the list of available Bibles: https://bibliaapi.com/docs/Available_Bibles
 # to get your own personal key: https://api.biblia.com/v1/Users/SignIn
+# This tools uses the http://biblia.com/ Biblia web services from http://www.logos.com/ Logos Bible Software
 
 import json
 import urllib3
@@ -22,8 +22,16 @@ class BibliaDownload:
 
     def __init__(self, argv):
         config = ConfigParser()
-        config.read('parse-text.ini')
-        self._key = config.get('main', 'biblia_key')
+        try:
+            config.read('parse-text.ini')
+            self._key = config.get('main', 'biblia_key')
+        except Exception:
+            eprint("ERROR: parse-text.ini not found in current directory")
+            eprint("You need this file to specify the corresponding API Key to access https://api.biblia.com/")
+            eprint("The file should look like:")
+            eprint("[main]")
+            eprint("biblia_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+            sys.exit(1)
 
         if self._argv is None:
             self._argv = argv[1:]
