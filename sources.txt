@@ -1,0 +1,3 @@
+https://github.com/byztxt/greektext-textus-receptus
+https://github.com/aruljohn/Bible-kjv.git
+https://api.biblia.com/v1/bible/content/RVR60.txt.js\?key\=\&passage\=Revelation1:1
